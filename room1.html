@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oda 1 - Süperpozisyon Kapısı | Quantum Escape Room</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="particles-container" id="particlesContainer"></div>
+        <div class="background-glow"></div>
+        <div class="scan-lines"></div>
+    </div>
+
+    <div class="main-container game-container">
+        <!-- Header Bar -->
+        <div class="game-header">
+            <div class="header-left">
+                <button class="btn-back" onclick="goHome()">← ANA SAYFA</button>
+                <div class="room-title">
+                    <span class="room-badge">ODA 1</span>
+                    <h2>SÜPERPOZISYON KAPI</h2>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="progress-indicator">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 50%"></div>
+                    </div>
+                    <span class="progress-text">1/2</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div class="game-screen">
+            <!-- Left Panel - Info -->
+            <div class="game-panel left-panel">
+                <div class="panel-header">
+                    <h3>📖 GÖREV</h3>
+                </div>
+                <div class="panel-content">
+                    <div class="objective-box">
+                        <h4>Bu Odada Ne Öğreneceksin?</h4>
+                        <p>Bu odada süperpozisyon ve ölçüm kavramlarını öğreneceksin. Kuantum sistemleri ölçülene kadar birden fazla olasılığı aynı anda temsil edebilir. Doğru kuantum durumunu seçerek kapıyı açabilirsin.</p>
+                    </div>
+
+                    <div class="status-box">
+                        <h4>🎯 ODA DURUMU</h4>
+                        <div class="status-item">
+                            <span class="status-label">Kilit Durumu:</span>
+                            <span class="status-value" id="lockStatus">🔒 KİLİTLİ</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Bulmaca:</span>
+                            <span class="status-value" id="puzzleStatus">⏳ ÇÖZMEDE</span>
+                        </div>
+                    </div>
+
+                    <div class="hint-box">
+                        <h4>💡 İPUÇU</h4>
+                        <p id="hintText">Bir kuantum durumu seç ve ölçümü başlat</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Panel - Puzzle -->
+            <div class="game-panel center-panel">
+                <div class="puzzle-section">
+                    <div class="puzzle-header">
+                        <h3>KUANTUM DURUMU SEÇ</h3>
+                        <p>Doğru durumu seçerek kapıyı aç</p>
+                    </div>
+
+                    <!-- Kuantum Kartları -->
+                    <div class="quantum-cards">
+                        <div class="quantum-card" data-state="0" onclick="selectCard(this)">
+                            <div class="card-display">
+                                <span class="card-value">0</span>
+                                <span class="card-label">Klasik Bit</span>
+                            </div>
+                            <div class="card-glow"></div>
+                        </div>
+
+                        <div class="quantum-card" data-state="1" onclick="selectCard(this)">
+                            <div class="card-display">
+                                <span class="card-value">1</span>
+                                <span class="card-label">Klasik Bit</span>
+                            </div>
+                            <div class="card-glow"></div>
+                        </div>
+
+                        <div class="quantum-card" data-state="psi" onclick="selectCard(this)">
+                            <div class="card-display">
+                                <span class="card-value">|ψ⟩</span>
+                                <span class="card-label">Süperpozisyon</span>
+                            </div>
+                            <div class="card-glow"></div>
+                        </div>
+                    </div>
+
+                    <!-- Ölçüm Butonu -->
+                    <button class="btn-action" id="measureBtn" onclick="measureQuantum()">
+                        <span class="btn-action-text">🔬 ÖLÇÜM YAP</span>
+                        <div class="btn-action-glow"></div>
+                    </button>
+                </div>
+
+                <!-- Door Visual -->
+                <div class="door-container" id="doorContainer">
+                    <div class="door-frame">
+                        <div class="door-handle"></div>
+                        <div class="door" id="gameDoor">
+                            <div class="door-glow"></div>
+                        </div>
+                    </div>
+                    <p id="doorStatus">🔒 KİLİT: KAPALI</p>
+                </div>
+            </div>
+
+            <!-- Right Panel - Stats -->
+            <div class="game-panel right-panel">
+                <div class="panel-header">
+                    <h3>📊 ENERJİ PANELİ</h3>
+                </div>
+                <div class="panel-content">
+                    <div class="energy-bar">
+                        <div class="energy-label">Sistem Enerji</div>
+                        <div class="energy-level">
+                            <div class="energy-fill" id="energyFill"></div>
+                        </div>
+                        <div class="energy-value" id="energyValue">0%</div>
+                    </div>
+
+                    <div class="status-panel">
+                        <h4>SISTEM İSTATİSTİĞİ</h4>
+                        <div class="stat-item">
+                            <span class="stat-label">Zaman:</span>
+                            <span class="stat-value" id="timeValue">00:00</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Deneme:</span>
+                            <span class="stat-value" id="attemptValue">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Başarı:</span>
+                            <span class="stat-value" id="successRate">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>ℹ️ KUANTUM VERİSİ</h4>
+                        <p class="info-text">Seçtiğin durum: <span id="selectedState">-</span></p>
+                        <p class="info-text">Sistem Durumu: <span id="systemStatus">Bekleniyor</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-modal">
+            <div class="modal-header">
+                <h2>🎉 BAŞARILI!</h2>
+                <p>Süperpozisyon Kapısı Açıldı</p>
+            </div>
+
+            <div class="learning-card">
+                <h3>SÜPERPOZISYON NE İŞE YARAR?</h3>
+                <p>Süperpozisyon, kuantum bilgisayarların aynı anda birden fazla olasılığı temsil edebilmesini sağlar. Bu özellik, bazı karmaşık problemlerin klasik bilgisayarlardan farklı şekilde ele alınmasına yardımcı olur.</p>
+
+                <div class="benzetme-section">
+                    <h4>💡 GÜNLÜK HAYAT BENZETMESİ</h4>
+                    <p>"Bir madeni para havadayken yazı mı tura mı olduğu kesin değildir. Ölçüm yaptığında yani baktığında sonuç belirginleşir."</p>
+                </div>
+
+                <div class="key-message">
+                    <p><strong>Temel Mesaj:</strong> Süperpozisyon, bir parçacığın ölçülene kadar aynı anda birden fazla durumda bulunabilmesidir.</p>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="goToRoom2()">Oda 2'ye Git →</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

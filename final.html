@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final - Tebrikler | Quantum Escape Room</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="particles-container" id="particlesContainer"></div>
+        <div class="background-glow"></div>
+        <div class="scan-lines"></div>
+    </div>
+
+    <div class="main-container">
+        <div class="final-screen">
+            <!-- Celebration Banner -->
+            <div class="celebration-header">
+                <h1 class="celebration-title">🎉 TEBRİKLER! 🎉</h1>
+                <p class="celebration-subtitle">Kuantum Laboratuvarından Başarıyla Kaçtın!</p>
+                <div class="confetti" id="confetti"></div>
+            </div>
+
+            <!-- Results Card -->
+            <div class="results-container">
+                <div class="result-card">
+                    <h2>🏆 BAŞARILI ÇÖZÜLDİ</h2>
+                    
+                    <div class="achievement-section">
+                        <h3>Tamamlanan Odalar</h3>
+                        <div class="achievement-list">
+                            <div class="achievement-item completed">
+                                <span class="achievement-icon">✓</span>
+                                <span class="achievement-text">Oda 1 - Süperpozisyon Kapısı</span>
+                            </div>
+                            <div class="achievement-item completed">
+                                <span class="achievement-icon">✓</span>
+                                <span class="achievement-text">Oda 2 - Dolanık Mesaj Kasası</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learning-summary">
+                        <h3>📚 Öğrendiğin Kuantum Kavramları</h3>
+                        
+                        <div class="concept-summary">
+                            <div class="summary-item">
+                                <span class="summary-icon">⚛️</span>
+                                <h4>QUBIT</h4>
+                                <p>Kuantum bilişiminin temel birimi - klasik bilgisayarlardan farklı olarak aynı anda 0 ve 1 olabilir</p>
+                            </div>
+
+                            <div class="summary-item">
+                                <span class="summary-icon">🌊</span>
+                                <h4>SÜPERPOZISYON</h4>
+                                <p>Bir parçacığın ölçülene kadar birden fazla durumda bulunabilmesi - kuantum hesaplamayı güçlü kılan ana özellik</p>
+                            </div>
+
+                            <div class="summary-item">
+                                <span class="summary-icon">👁️</span>
+                                <h4>ÖLÇÜM</h4>
+                                <p>Gözlemin sistemi değiştirir - ölçüm yaptığında süperpozisyon çöküp belirli bir sonuç alırız</p>
+                            </div>
+
+                            <div class="summary-item">
+                                <span class="summary-icon">🔗</span>
+                                <h4>DOLANDILIK</h4>
+                                <p>Parçacıklar arasında mesafeye rağmen var olan bağlantı - kuantum iletişim ve güvenliğin temeli</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="message-box">
+                        <h3>💡 Kuantum Fiziği Yolculuğuna Başladın!</h3>
+                        <p>Bu oyun, kuantum fiziğinin temel kavramlarını anlamanın ilk adımı. Gerçek kuantum bilim çok daha derindir ve gelecekteki teknolojilerin temelini oluşturacaktır. Merakını yitirme! 🚀</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="final-actions">
+                <button class="btn-play" onclick="restartGame()">
+                    <span class="btn-text">🔄 OYUNU TEKRAR OYNA</span>
+                    <div class="btn-glow"></div>
+                </button>
+                <button class="btn-play secondary" onclick="goHome()">
+                    <span class="btn-text">🏠 ANA SAYFAYA DÖN</span>
+                    <div class="btn-glow"></div>
+                </button>
+            </div>
+
+            <!-- Footer -->
+            <div class="final-footer">
+                <p>Kuantum fiziğini sevdin mi? Daha fazlasını öğren ve araştır! ⚛️</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Final sayfasında konfeti animasyonu
+        function createConfetti() {
+            const confettiContainer = document.getElementById('confetti');
+            for (let i = 0; i < 50; i++) {
+                const confettiPiece = document.createElement('div');
+                confettiPiece.className = 'confetti-piece';
+                confettiPiece.style.left = Math.random() * 100 + '%';
+                confettiPiece.style.delay = Math.random() * 0.5 + 's';
+                confettiContainer.appendChild(confettiPiece);
+            }
+        }
+
+        window.addEventListener('load', createConfetti);
+    </script>
+</body>
+</html>

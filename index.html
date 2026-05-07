@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Escape Room - Kuantum Laboratuvarından Kaçış</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="particles-container" id="particlesContainer"></div>
+        <div class="background-glow"></div>
+        <div class="scan-lines"></div>
+    </div>
+
+    <div class="main-container">
+        <div class="home-screen">
+            <!-- Logo/Başlık Bölümü -->
+            <div class="header-section">
+                <div class="logo-container">
+                    <h1 class="main-title">⚛️ QUANTUM ESCAPE ROOM ⚛️</h1>
+                    <div class="title-glow"></div>
+                </div>
+                <p class="subtitle">Kuantum laboratuvarından kaçmak için kuantum bulmacalarını çöz</p>
+            </div>
+
+            <!-- CTA Butonu -->
+            <div class="cta-section">
+                <button class="btn-play" onclick="startGame()">
+                    <span class="btn-text">▶ OYUNA BAŞLA</span>
+                    <div class="btn-glow"></div>
+                </button>
+            </div>
+
+            <!-- Kuantum Özeti Bölümü -->
+            <div class="quantum-intro">
+                <h2 class="section-title">📚 TEMEL KUANTUM FİZİĞİ</h2>
+                <p class="section-desc">Oyuna başlamadan önce temel kuantum kavramlarını öğren</p>
+                
+                <div class="cards-grid">
+                    <div class="concept-card">
+                        <div class="card-header">
+                            <div class="card-icon">⚛️</div>
+                            <h3>QUBIT</h3>
+                        </div>
+                        <p>Kuantum bilgisayarlarının temel birimi. Klasik bitler gibi 0 veya 1 olabilir, ama aynı anda her ikisi de olabilir.</p>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="card-header">
+                            <div class="card-icon">🌊</div>
+                            <h3>SÜPERPOZISYON</h3>
+                        </div>
+                        <p>Bir kuantum sistemi ölçülene kadar birden fazla durumda bulunabilir. Klasik fizikte bu mümkün değildir.</p>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="card-header">
+                            <div class="card-icon">👁️</div>
+                            <h3>ÖLÇÜM</h3>
+                        </div>
+                        <p>Bir kuantum sistemini gözlemlemek, onun sonucunu belirler. Ölçümün kendisi sistemi değiştirir.</p>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="card-header">
+                            <div class="card-icon">🔗</div>
+                            <h3>DOLANIKLIK</h3>
+                        </div>
+                        <p>İki kuantum parçacığı birbirinden uzakta olsa bile bağlantılı davranabilir. Birini ölçmek diğerini etkiler.</p>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="card-header">
+                            <div class="card-icon">🖥️</div>
+                            <h3>KUANTUM BİLGİSAYARLAR</h3>
+                        </div>
+                        <p>Klasik bilgisayarlardan farklı olarak bazı problemleri çok hızlı çözerler. Kriptografi, optimizasyon ve simülasyonda güçlüdür.</p>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="card-header">
+                            <div class="card-icon">⚡</div>
+                            <h3>ENERJI SEVİYELERİ</h3>
+                        </div>
+                        <p>Kuantum sistemlerinde enerji sadece belirli değerlerde olabilir. Sürekli değişkenlik yoktur.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer-info">
+                <p>Lise öğrencileri için eğitsel kuantum fiziği oyunu</p>
+                <p class="footer-credit">Kuantum teknolojisi ile tasarlanmıştır ⚛️</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

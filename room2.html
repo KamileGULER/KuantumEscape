@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oda 2 - Dolanık Mesaj | Quantum Escape Room</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="particles-container" id="particlesContainer"></div>
+        <div class="background-glow"></div>
+        <div class="scan-lines"></div>
+    </div>
+
+    <div class="main-container game-container">
+        <!-- Header Bar -->
+        <div class="game-header">
+            <div class="header-left">
+                <button class="btn-back" onclick="goHome()">← ANA SAYFA</button>
+                <div class="room-title">
+                    <span class="room-badge room-badge-2">ODA 2</span>
+                    <h2>DOLANIK MESAJ KASA</h2>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="progress-indicator">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                    <span class="progress-text">2/2</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div class="game-screen">
+            <!-- Left Panel - Info -->
+            <div class="game-panel left-panel">
+                <div class="panel-header">
+                    <h3>📖 GÖREV</h3>
+                </div>
+                <div class="panel-content">
+                    <div class="objective-box">
+                        <h4>Bu Odada Ne Öğreneceksin?</h4>
+                        <p>Bu odada dolanıklık kavramını öğreneceksin. Dolanık parçacıklar birbirinden uzak olsalar bile bağlantılı davranabilir. Mavi ve kırmızı kutuları eşleştirerek kasayı açabilirsin.</p>
+                    </div>
+
+                    <div class="status-box">
+                        <h4>🎯 ODA DURUMU</h4>
+                        <div class="status-item">
+                            <span class="status-label">Kilit Durumu:</span>
+                            <span class="status-value" id="lockStatus">🔒 KİLİTLİ</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Eşleşme:</span>
+                            <span class="status-value" id="matchStatus">0/2 ✓</span>
+                        </div>
+                    </div>
+
+                    <div class="hint-box">
+                        <h4>💡 İPUÇU</h4>
+                        <p id="hintText">Dolanık parçacıklar birbirinin zıttı durumlarda bulunur</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Panel - Puzzle -->
+            <div class="game-panel center-panel">
+                <div class="puzzle-section">
+                    <div class="puzzle-header">
+                        <h3>KUTULARI EŞLEŞTİR</h3>
+                        <p>Dolanık parçacıklar arasındaki bağlantıyı bulabilir misin?</p>
+                    </div>
+
+                    <!-- Entanglement Boxes -->
+                    <div class="entanglement-system">
+                        <!-- Mavi Kutu -->
+                        <div class="quantum-box blue-box">
+                            <div class="box-header">
+                                <span class="box-label">MAVİ KUTU</span>
+                                <span class="box-icon">□</span>
+                            </div>
+                            <div class="box-cards">
+                                <div class="entangle-card" data-box="blue" data-index="0" onclick="selectCard(this)">
+                                    <span class="card-symbol">↑</span>
+                                    <span class="card-desc">Yukarı</span>
+                                    <div class="connection-line"></div>
+                                </div>
+                                <div class="entangle-card" data-box="blue" data-index="1" onclick="selectCard(this)">
+                                    <span class="card-symbol">0</span>
+                                    <span class="card-desc">Sıfır</span>
+                                    <div class="connection-line"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kırmızı Kutu -->
+                        <div class="quantum-box red-box">
+                            <div class="box-header">
+                                <span class="box-label">KIRMIZI KUTU</span>
+                                <span class="box-icon">□</span>
+                            </div>
+                            <div class="box-cards">
+                                <div class="entangle-card" data-box="red" data-index="0" onclick="selectCard(this)">
+                                    <span class="card-symbol">↓</span>
+                                    <span class="card-desc">Aşağı</span>
+                                    <div class="connection-line"></div>
+                                </div>
+                                <div class="entangle-card" data-box="red" data-index="1" onclick="selectCard(this)">
+                                    <span class="card-symbol">1</span>
+                                    <span class="card-desc">Bir</span>
+                                    <div class="connection-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Eşleştirme Açı Butonu -->
+                    <button class="btn-action" id="openCasaBtn" onclick="openCasa()">
+                        <span class="btn-action-text">🔓 KASAYI AÇ</span>
+                        <div class="btn-action-glow"></div>
+                    </button>
+                </div>
+
+                <!-- Vault Visual -->
+                <div class="vault-container" id="vaultContainer">
+                    <div class="vault">
+                        <div class="vault-door" id="vaultDoor">
+                            <div class="vault-lock"></div>
+                            <div class="vault-glow"></div>
+                        </div>
+                        <div class="vault-dial"></div>
+                    </div>
+                    <p id="vaultStatus">🔒 KASA: KAPAL</p>
+                </div>
+            </div>
+
+            <!-- Right Panel - Stats -->
+            <div class="game-panel right-panel">
+                <div class="panel-header">
+                    <h3>📊 ENERJİ PANELİ</h3>
+                </div>
+                <div class="panel-content">
+                    <div class="energy-bar">
+                        <div class="energy-label">Sistem Enerji</div>
+                        <div class="energy-level">
+                            <div class="energy-fill" id="energyFill"></div>
+                        </div>
+                        <div class="energy-value" id="energyValue">0%</div>
+                    </div>
+
+                    <div class="status-panel">
+                        <h4>SISTEM İSTATİSTİĞİ</h4>
+                        <div class="stat-item">
+                            <span class="stat-label">Zaman:</span>
+                            <span class="stat-value" id="timeValue">00:00</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Deneme:</span>
+                            <span class="stat-value" id="attemptValue">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Başarı:</span>
+                            <span class="stat-value" id="successRate">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>ℹ️ DOLANIKLIK VERİSİ</h4>
+                        <p class="info-text">Eşleşme 1: <span id="match1Status">-</span></p>
+                        <p class="info-text">Eşleşme 2: <span id="match2Status">-</span></p>
+                        <p class="info-text">Sistem: <span id="systemStatus">Bekleniyor</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-modal">
+            <div class="modal-header">
+                <h2>🎉 BAŞARILI!</h2>
+                <p>Kasa Açıldı - Dolanıklık Bulundu</p>
+            </div>
+
+            <div class="learning-card">
+                <h3>DOLANLIKLIK NE İŞE YARAR?</h3>
+                <p>Dolanıklık, kuantum iletişim ve kuantum güvenlik alanlarında önemli bir kavramdır. İki parçacık birbirinden uzakta olsa bile bağlantılı davranabilir ve bu durum kuantum bilim ve teknolojisinin temel taşlarından biridir.</p>
+
+                <div class="benzetme-section">
+                    <h4>💡 GÜNLÜK HAYAT BENZETMESİ</h4>
+                    <p>"İki sihirli kart düşün. Birini açtığında diğerinin ne olduğunu hemen anlarsın ve aralarındaki mesafenin bir önemi yoktur."</p>
+                </div>
+
+                <div class="key-message">
+                    <p><strong>Temel Mesaj:</strong> Kuantum dolanıklığı, parçacıkların birbirine bağlı davranmasıdır ve Einstein tarafından bile 'uzaktan etki' olarak adlandırılmıştır.</p>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="goToFinal()">Final Sayfasına Git →</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
