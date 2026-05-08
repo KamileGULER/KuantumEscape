@@ -14,28 +14,25 @@
     </div>
 
     <div class="main-container game-container">
-        <!-- Header Bar -->
         <div class="game-header">
             <div class="header-left">
                 <button class="btn-back" onclick="goHome()">← ANA SAYFA</button>
                 <div class="room-title">
-                    <span class="room-badge room-badge-2">ODA 2</span>
-                    <h2>DOLANIK MESAJ KASA</h2>
+                    <span class="room-badge room-badge-2">ODA 2 / 5 · PROTOTİP</span>
+                    <h2>DOLANIK MESAJ KASASI</h2>
                 </div>
             </div>
             <div class="header-right">
                 <div class="progress-indicator">
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 100%"></div>
+                        <div class="progress-fill" style="width: 40%"></div>
                     </div>
-                    <span class="progress-text">2/2</span>
+                    <span class="progress-text">2/5 oda · 2/2 oynanabilir</span>
                 </div>
             </div>
         </div>
 
-        <!-- Game Screen -->
         <div class="game-screen">
-            <!-- Left Panel - Info -->
             <div class="game-panel left-panel">
                 <div class="panel-header">
                     <h3>📖 GÖREV</h3>
@@ -43,7 +40,7 @@
                 <div class="panel-content">
                     <div class="objective-box">
                         <h4>Bu Odada Ne Öğreneceksin?</h4>
-                        <p>Bu odada dolanıklık kavramını öğreneceksin. Dolanık parçacıklar birbirinden uzak olsalar bile bağlantılı davranabilir. Mavi ve kırmızı kutuları eşleştirerek kasayı açabilirsin.</p>
+                        <p>Bu odada dolanıklığı doğrudan “zıtları eşleştir” diye tahmin etmeyeceksin. Mavi ve kırmızı kapsülleri birlikte ölçerek hangi çiftlerin tutarlı korelasyon verdiğini keşfedeceksin.</p>
                     </div>
 
                     <div class="status-box">
@@ -53,93 +50,108 @@
                             <span class="status-value" id="lockStatus">🔒 KİLİTLİ</span>
                         </div>
                         <div class="status-item">
-                            <span class="status-label">Eşleşme:</span>
-                            <span class="status-value" id="matchStatus">0/2 ✓</span>
+                            <span class="status-label">Doğrulanan Çift:</span>
+                            <span class="status-value" id="matchStatus">0/3 ✓</span>
                         </div>
                     </div>
 
                     <div class="hint-box">
-                        <h4>💡 İPUÇU</h4>
-                        <p id="hintText">Dolanık parçacıklar birbirinin zıttı durumlarda bulunur</p>
+                        <h4>💡 İPUCU</h4>
+                        <p id="hintText">Bir mavi ve bir kırmızı kapsül seç. Aynı çift tekrar tekrar tutarlı ilişki gösteriyorsa dolanık çift olabilir.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Center Panel - Puzzle -->
             <div class="game-panel center-panel">
                 <div class="puzzle-section">
                     <div class="puzzle-header">
-                        <h3>KUTULARI EŞLEŞTİR</h3>
-                        <p>Dolanık parçacıklar arasındaki bağlantıyı bulabilir misin?</p>
+                        <h3>KORELASYONU KEŞFET</h3>
+                        <p>Tek deneme yetmez; aynı çifti en az iki kez doğrula.</p>
                     </div>
 
-                    <!-- Entanglement Boxes -->
-                    <div class="entanglement-system">
-                        <!-- Mavi Kutu -->
+                    <div class="entanglement-system discovery-system">
                         <div class="quantum-box blue-box">
                             <div class="box-header">
-                                <span class="box-label">MAVİ KUTU</span>
+                                <span class="box-label">MAVİ KAPSÜLLER</span>
                                 <span class="box-icon">□</span>
                             </div>
                             <div class="box-cards">
-                                <div class="entangle-card" data-box="blue" data-index="0" onclick="selectCard(this)">
-                                    <span class="card-symbol">↑</span>
-                                    <span class="card-desc">Yukarı</span>
+                                <div class="entangle-card" data-box="blue" data-id="B1" role="button" tabindex="0">
+                                    <span class="card-symbol">B1</span>
+                                    <span class="card-desc">Gizli durum</span>
                                     <div class="connection-line"></div>
                                 </div>
-                                <div class="entangle-card" data-box="blue" data-index="1" onclick="selectCard(this)">
-                                    <span class="card-symbol">0</span>
-                                    <span class="card-desc">Sıfır</span>
+                                <div class="entangle-card" data-box="blue" data-id="B2" role="button" tabindex="0">
+                                    <span class="card-symbol">B2</span>
+                                    <span class="card-desc">Gizli durum</span>
+                                    <div class="connection-line"></div>
+                                </div>
+                                <div class="entangle-card" data-box="blue" data-id="B3" role="button" tabindex="0">
+                                    <span class="card-symbol">B3</span>
+                                    <span class="card-desc">Gizli durum</span>
                                     <div class="connection-line"></div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Kırmızı Kutu -->
                         <div class="quantum-box red-box">
                             <div class="box-header">
-                                <span class="box-label">KIRMIZI KUTU</span>
+                                <span class="box-label">KIRMIZI KAPSÜLLER</span>
                                 <span class="box-icon">□</span>
                             </div>
                             <div class="box-cards">
-                                <div class="entangle-card" data-box="red" data-index="0" onclick="selectCard(this)">
-                                    <span class="card-symbol">↓</span>
-                                    <span class="card-desc">Aşağı</span>
+                                <div class="entangle-card" data-box="red" data-id="R1" role="button" tabindex="0">
+                                    <span class="card-symbol">R1</span>
+                                    <span class="card-desc">Gizli durum</span>
                                     <div class="connection-line"></div>
                                 </div>
-                                <div class="entangle-card" data-box="red" data-index="1" onclick="selectCard(this)">
-                                    <span class="card-symbol">1</span>
-                                    <span class="card-desc">Bir</span>
+                                <div class="entangle-card" data-box="red" data-id="R2" role="button" tabindex="0">
+                                    <span class="card-symbol">R2</span>
+                                    <span class="card-desc">Gizli durum</span>
+                                    <div class="connection-line"></div>
+                                </div>
+                                <div class="entangle-card" data-box="red" data-id="R3" role="button" tabindex="0">
+                                    <span class="card-symbol">R3</span>
+                                    <span class="card-desc">Gizli durum</span>
                                     <div class="connection-line"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Eşleştirme Açı Butonu -->
-                    <button class="btn-action" id="openCasaBtn" onclick="openCasa()">
-                        <span class="btn-action-text">🔓 KASAYI AÇ</span>
-                        <div class="btn-action-glow"></div>
-                    </button>
+                    <div class="action-row">
+                        <button class="btn-action" id="measurePairBtn">
+                            <span class="btn-action-text">🔬 ÇİFTİ ÖLÇ</span>
+                            <div class="btn-action-glow"></div>
+                        </button>
+                        <button class="btn-action secondary-action" id="openCasaBtn">
+                            <span class="btn-action-text">🔓 KASAYI AÇ</span>
+                            <div class="btn-action-glow"></div>
+                        </button>
+                    </div>
+
+                    <div class="evidence-board" id="room2EvidenceBoard">
+                        <div class="board-title">Korelasyon Kayıtları</div>
+                        <div class="station-readout" id="pairReadout">Henüz çift ölçülmedi.</div>
+                        <div class="station-readout" id="confirmedPairs">Doğrulanan çiftler: -</div>
+                    </div>
                 </div>
 
-                <!-- Vault Visual -->
                 <div class="vault-container" id="vaultContainer">
-                    <div class="vault">
+                    <div class="vault" id="vaultShell">
                         <div class="vault-door" id="vaultDoor">
                             <div class="vault-lock"></div>
                             <div class="vault-glow"></div>
                         </div>
                         <div class="vault-dial"></div>
                     </div>
-                    <p id="vaultStatus">🔒 KASA: KAPAL</p>
+                    <p id="vaultStatus">🔒 KASA: KAPALI</p>
                 </div>
             </div>
 
-            <!-- Right Panel - Stats -->
             <div class="game-panel right-panel">
                 <div class="panel-header">
-                    <h3>📊 ENERJİ PANELİ</h3>
+                    <h3>📊 DENEY PANELİ</h3>
                 </div>
                 <div class="panel-content">
                     <div class="energy-bar">
@@ -151,25 +163,26 @@
                     </div>
 
                     <div class="status-panel">
-                        <h4>SISTEM İSTATİSTİĞİ</h4>
+                        <h4>SİSTEM İSTATİSTİĞİ</h4>
                         <div class="stat-item">
                             <span class="stat-label">Zaman:</span>
                             <span class="stat-value" id="timeValue">00:00</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-label">Deneme:</span>
+                            <span class="stat-label">Ölçüm:</span>
                             <span class="stat-value" id="attemptValue">0</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-label">Başarı:</span>
-                            <span class="stat-value" id="successRate">0%</span>
+                            <span class="stat-label">Kanıt:</span>
+                            <span class="stat-value" id="successRate">0/3 çift</span>
                         </div>
                     </div>
 
                     <div class="info-section">
                         <h4>ℹ️ DOLANIKLIK VERİSİ</h4>
-                        <p class="info-text">Eşleşme 1: <span id="match1Status">-</span></p>
-                        <p class="info-text">Eşleşme 2: <span id="match2Status">-</span></p>
+                        <p class="info-text">Mavi seçim: <span id="match1Status">-</span></p>
+                        <p class="info-text">Kırmızı seçim: <span id="match2Status">-</span></p>
+                        <p class="info-text">Son ölçüm: <span id="lastPairMeasurement">-</span></p>
                         <p class="info-text">Sistem: <span id="systemStatus">Bekleniyor</span></p>
                     </div>
                 </div>
@@ -177,25 +190,24 @@
         </div>
     </div>
 
-    <!-- Success Modal -->
     <div class="modal" id="successModal">
         <div class="modal-content success-modal">
             <div class="modal-header">
                 <h2>🎉 BAŞARILI!</h2>
-                <p>Kasa Açıldı - Dolanıklık Bulundu</p>
+                <p>Kasa Açıldı - Dolanıklık Kanıtlandı</p>
             </div>
 
             <div class="learning-card">
-                <h3>DOLANLIKLIK NE İŞE YARAR?</h3>
-                <p>Dolanıklık, kuantum iletişim ve kuantum güvenlik alanlarında önemli bir kavramdır. İki parçacık birbirinden uzakta olsa bile bağlantılı davranabilir ve bu durum kuantum bilim ve teknolojisinin temel taşlarından biridir.</p>
+                <h3>DOLANIKLIK NE İŞE YARAR?</h3>
+                <p>Dolanıklık, iki sistemin sonuçları arasında klasik sezgiden daha güçlü korelasyonlar oluşmasını sağlar. Oyunda doğru çiftler tek tek bakıldığında rastgele sonuç verdi; fakat çift olarak tekrar ölçüldüğünde tutarlı ilişki gösterdi.</p>
 
                 <div class="benzetme-section">
                     <h4>💡 GÜNLÜK HAYAT BENZETMESİ</h4>
-                    <p>"İki sihirli kart düşün. Birini açtığında diğerinin ne olduğunu hemen anlarsın ve aralarındaki mesafenin bir önemi yoktur."</p>
+                    <p>İki kilitli kutu düşün. Kutuların içeriğini önceden bilemezsin; ama doğru iki kutuyu birlikte tekrar tekrar açınca sonuçlar arasında düzenli bir bağlantı olduğunu fark edersin.</p>
                 </div>
 
                 <div class="key-message">
-                    <p><strong>Temel Mesaj:</strong> Kuantum dolanıklığı, parçacıkların birbirine bağlı davranmasıdır ve Einstein tarafından bile 'uzaktan etki' olarak adlandırılmıştır.</p>
+                    <p><strong>Temel Mesaj:</strong> Dolanıklık “cevabı söyleyen sihirli bağlantı” değildir. Tek parçacık sonucu rastgeledir; anlamlı bilgi, iki parçacığın sonuçlarını birlikte karşılaştırınca ortaya çıkar.</p>
                 </div>
             </div>
 

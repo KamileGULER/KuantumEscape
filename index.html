@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quantum Escape Room - Kuantum Laboratuvarından Kaçış</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="background-effects">
         <div class="particles-container" id="particlesContainer"></div>
@@ -15,16 +17,15 @@
 
     <div class="main-container">
         <div class="home-screen">
-            <!-- Logo/Başlık Bölümü -->
             <div class="header-section">
                 <div class="logo-container">
                     <h1 class="main-title">⚛️ QUANTUM ESCAPE ROOM ⚛️</h1>
                     <div class="title-glow"></div>
                 </div>
-                <p class="subtitle">Kuantum laboratuvarından kaçmak için kuantum bulmacalarını çöz</p>
+                <p class="subtitle">Kuantum laboratuvarından kaçmak için ölçüm, kanıt ve korelasyon bulmacalarını çöz
+                </p>
             </div>
 
-            <!-- CTA Butonu -->
             <div class="cta-section">
                 <button class="btn-play" onclick="startGame()">
                     <span class="btn-text">▶ OYUNA BAŞLA</span>
@@ -32,63 +33,108 @@
                 </button>
             </div>
 
-            <!-- Kuantum Özeti Bölümü -->
-            <div class="quantum-intro">
-                <h2 class="section-title">📚 TEMEL KUANTUM FİZİĞİ</h2>
-                <p class="section-desc">Oyuna başlamadan önce temel kuantum kavramlarını öğren</p>
-                
-                <div class="cards-grid">
-                    <div class="concept-card">
+            <div class="prototype-notice-top">
+                <h3>Prototip Durumu</h3>
+                <div class="prototype-badges">
+                    <span class="prototype-badge active">2 ODA AKTİF</span>
+                    <span class="prototype-badge">5 ODA PLANLI</span>
+                </div>
+            </div>
+
+            <div class="quantum-intro clickable-intro" onclick="goBasics()" role="button" tabindex="0"
+                aria-label="Temel kuantum fiziği konu anlatımına git">
+                <h2 class="section-title">📚 KUANTUM MEKANİĞİ VE KUANTUM BİLİŞİME GİRİŞ</h2>
+                <p class="section-desc">
+                    Oyuna başlamadan önce kuantum mekaniğinin temel fikirlerini ve oyunda kullanılan kuantum bilişim
+                    kavramlarını öğren.
+                </p>
+                <span class="learn-more-pill">Konu anlatımını aç →</span>
+
+                <div class="cards-grid" onclick="event.stopPropagation()">
+                    <a class="concept-card concept-card-link" href="quantum-basics.html#qubit">
                         <div class="card-header">
                             <div class="card-icon">⚛️</div>
                             <h3>QUBIT</h3>
                         </div>
-                        <p>Kuantum bilgisayarlarının temel birimi. Klasik bitler gibi 0 veya 1 olabilir, ama aynı anda her ikisi de olabilir.</p>
-                    </div>
+                        <p>Kuantum bilgisayarlarının temel birimi. Ölçüm sonucunda 0 veya 1 verir; ölçümden önce
+                            olasılıklarla tanımlanabilir.</p>
+                    </a>
 
-                    <div class="concept-card">
+                    <a class="concept-card concept-card-link" href="quantum-basics.html#superposition">
                         <div class="card-header">
                             <div class="card-icon">🌊</div>
-                            <h3>SÜPERPOZISYON</h3>
+                            <h3>SÜPERPOZİSYON</h3>
                         </div>
-                        <p>Bir kuantum sistemi ölçülene kadar birden fazla durumda bulunabilir. Klasik fizikte bu mümkün değildir.</p>
-                    </div>
+                        <p>Bir kuantum sisteminin ölçümden önce birden fazla olası durumun birleşimi gibi davranmasıdır.
+                        </p>
+                    </a>
 
-                    <div class="concept-card">
+                    <a class="concept-card concept-card-link" href="quantum-basics.html#measurement">
                         <div class="card-header">
                             <div class="card-icon">👁️</div>
                             <h3>ÖLÇÜM</h3>
                         </div>
-                        <p>Bir kuantum sistemini gözlemlemek, onun sonucunu belirler. Ölçümün kendisi sistemi değiştirir.</p>
-                    </div>
+                        <p>Ölçüm, süperpozisyonu tek bir klasik sonuca indirger. Bu yüzden tek ölçüm değil, tekrarlar
+                            önemlidir.</p>
+                    </a>
 
-                    <div class="concept-card">
+                    <a class="concept-card concept-card-link" href="quantum-basics.html#entanglement">
                         <div class="card-header">
                             <div class="card-icon">🔗</div>
                             <h3>DOLANIKLIK</h3>
                         </div>
-                        <p>İki kuantum parçacığı birbirinden uzakta olsa bile bağlantılı davranabilir. Birini ölçmek diğerini etkiler.</p>
-                    </div>
+                        <p>Dolanık sistemlerde tek tek sonuçlar rastgele görünür; birlikte bakıldığında güçlü korelasyon
+                            ortaya çıkar.</p>
+                    </a>
 
-                    <div class="concept-card">
+                    <a class="concept-card concept-card-link" href="quantum-basics.html#quantum-computers">
                         <div class="card-header">
                             <div class="card-icon">🖥️</div>
                             <h3>KUANTUM BİLGİSAYARLAR</h3>
                         </div>
-                        <p>Klasik bilgisayarlardan farklı olarak bazı problemleri çok hızlı çözerler. Kriptografi, optimizasyon ve simülasyonda güçlüdür.</p>
-                    </div>
+                        <p>Qubit, süperpozisyon, girişim ve dolanıklık gibi etkileri kullanarak bazı özel problemleri
+                            farklı biçimde işler.</p>
+                    </a>
 
-                    <div class="concept-card">
+                    <a class="concept-card concept-card-link" href="quantum-basics.html#energy">
                         <div class="card-header">
                             <div class="card-icon">⚡</div>
-                            <h3>ENERJI SEVİYELERİ</h3>
+                            <h3>ENERJİ SEVİYELERİ</h3>
                         </div>
-                        <p>Kuantum sistemlerinde enerji sadece belirli değerlerde olabilir. Sürekli değişkenlik yoktur.</p>
+                        <p>Kuantum sistemlerde enerji çoğu zaman basamaklı seviyeler hâlinde ele alınır; her değer
+                            serbestçe alınmaz.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="roadmap-section">
+                <h2 class="section-title">🚪 Oda Yol Haritası</h2>
+                <p class="section-desc">Sunumdaki 5 oda yapısı ile dijital prototip artık aynı çerçevede gösteriliyor.
+                </p>
+                <div class="roadmap-grid">
+                    <div class="roadmap-card playable"><span>1</span>
+                        <h4>Süperpozisyon Kapısı</h4>
+                        <p>Oynanabilir</p>
+                    </div>
+                    <div class="roadmap-card playable"><span>2</span>
+                        <h4>Dolanık Mesaj Kasası</h4>
+                        <p>Oynanabilir</p>
+                    </div>
+                    <div class="roadmap-card locked"><span>3</span>
+                        <h4>Kuantum Zar Odası</h4>
+                        <p>Planlanan oda</p>
+                    </div>
+                    <div class="roadmap-card locked"><span>4</span>
+                        <h4>Qubit Şifresi</h4>
+                        <p>Planlanan oda</p>
+                    </div>
+                    <div class="roadmap-card locked"><span>5</span>
+                        <h4>Tünelleme Kilidi</h4>
+                        <p>Planlanan oda</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Footer -->
             <div class="footer-info">
                 <p>Lise öğrencileri için eğitsel kuantum fiziği oyunu</p>
                 <p class="footer-credit">Kuantum teknolojisi ile tasarlanmıştır ⚛️</p>
@@ -98,4 +144,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

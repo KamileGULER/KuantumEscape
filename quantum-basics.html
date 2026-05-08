@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuantum Mekaniği ve Kuantum Bilişime Giriş | Quantum Escape Room</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="particles-container" id="particlesContainer"></div>
+        <div class="background-glow"></div>
+        <div class="scan-lines"></div>
+    </div>
+
+    <div class="main-container learning-container">
+        <div class="learning-page">
+
+            <!-- Header -->
+            <div class="game-header learning-header">
+                <div class="header-left">
+                    <button class="btn-back" onclick="goHome()">← ANA SAYFA</button>
+                    <div class="room-title">
+                        <span class="room-badge">KONU ANLATIMI</span>
+                        <h2>KUANTUM MEKANİĞİ VE KUANTUM BİLİŞİME GİRİŞ</h2>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="btn-back" onclick="startGame()">OYUNA GEÇ →</button>
+                </div>
+            </div>
+
+            <!-- Hero -->
+            <section class="lesson-hero">
+                <h1>Kuantum Mekaniği ve Kuantum Bilişime Giriş</h1>
+                <p>
+                    Bu sayfa önce kuantum mekaniğinin ne olduğunu açıklar; ardından oyundaki bulmacalarda kullanılan
+                    süperpozisyon, ölçüm, dolanıklık, enerji seviyesi, qubit ve kuantum bilgisayar kavramlarını lise düzeyinde anlatır.
+                    Amaç formül ezberlemek değil; kuantum dünyasında ölçüm, olasılık, kanıt ve korelasyon mantığını anlamaktır.
+                </p>
+            </section>
+
+            <!-- 1. Quantum Mechanics -->
+            <section id="quantum-mechanics" class="lesson-card">
+                <div class="lesson-icon">🧬</div>
+                <div>
+                    <h2>1. Kuantum Mekaniği Nedir?</h2>
+
+                    <p>
+                        Kuantum mekaniği; atomlar, elektronlar, fotonlar ve moleküller gibi çok küçük ölçekteki sistemlerin
+                        nasıl davrandığını açıklayan fizik dalıdır. Günlük hayatta gördüğümüz büyük cisimler çoğunlukla klasik
+                        fizik kurallarıyla anlaşılır. Örneğin bir topun nerede olduğunu, hangi yöne gittiğini ve yaklaşık hızını
+                        takip edebiliriz.
+                    </p>
+
+                    <p>
+                        Fakat atom altı dünyada durum daha farklıdır. Bir parçacığın davranışı çoğu zaman kesin tek bir yol
+                        veya kesin tek bir durumla değil; olasılıklarla, ölçüm sonuçlarıyla ve enerji seviyeleriyle açıklanır.
+                        Bu yüzden kuantum mekaniği, klasik fiziğin açıklamakta zorlandığı çok küçük ölçekli olayları anlamak için
+                        geliştirilmiştir.
+                    </p>
+
+                    <p>
+                        “Kuantum” kelimesi, bazı fiziksel büyüklüklerin sürekli değil, belirli küçük paketler ya da seviyeler
+                        hâlinde ortaya çıkabilmesi fikriyle ilişkilidir. Işığın davranışı, atomların enerji seviyeleri, elektronların
+                        hareketi ve modern kuantum teknolojileri bu kurallar sayesinde daha iyi anlaşılır.
+                    </p>
+
+                    <div class="mini-example">
+                        <strong>Oyundaki karşılığı:</strong>
+                        Bu oyunda kapılar ve kasalar aslında kuantum mekaniğinin temel deney mantığını öğretir:
+                        <strong>bir sistemi hazırla, ölç, sonucu yorumla.</strong>
+                        Oda 1’de ölçüm ve süperpozisyonu; Oda 2’de ise dolanıklık ve korelasyonu deneyerek öğrenirsin.
+                    </div>
+
+                    <div class="mini-example">
+                        <strong>Basit benzetme:</strong>
+                        Klasik fizikte bir kapının açık mı kapalı mı olduğunu doğrudan görürsün.
+                        Kuantum dünyasında ise bazı sistemlerin nasıl davrandığını anlamak için aynı deneyi birkaç kez yapıp
+                        sonuçların desenine bakman gerekir.
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Superposition -->
+            <section id="superposition" class="lesson-card">
+                <div class="lesson-icon">🌊</div>
+                <div>
+                    <h2>2. Süperpozisyon Nedir?</h2>
+
+                    <p>
+                        Süperpozisyon, bir kuantum sisteminin ölçümden önce birden fazla olası sonucun birleşimi gibi davranmasıdır.
+                        Bu ifade bazen “aynı anda hem 0 hem 1” şeklinde anlatılır; fakat bu açıklama tek başına yeterli değildir.
+                        Daha doğru ifade şudur: Sistem ölçülmeden önce olasılıklarla tanımlanır; ölçüm yapıldığında ise tek bir sonuç elde edilir.
+                    </p>
+
+                    <p>
+                        Örneğin bir qubit ölçümden önce belirli olasılıklarla 0 veya 1 sonucunu verebilecek bir kuantum durumunda olabilir.
+                        Ölçüm yapıldığında ise ekranda yalnızca tek bir klasik sonuç görürüz: 0 ya da 1.
+                    </p>
+
+                    <div class="mini-example">
+                        <strong>Basit benzetme:</strong>
+                        Aynı şekilde hazırlanmış bir kuantum sistemi düşün. Her ölçümde tek bir sonuç görürsün; fakat aynı hazırlamayı
+                        çok kez tekrar ettiğinde sistemin olasılık desenini fark edersin.
+                    </div>
+
+                    <div class="mini-example">
+                        <strong>Oyundaki karşılığı:</strong>
+                        Oda 1’de oyuncu tek bir karta basarak değil, aynı kaynağı tekrar tekrar ölçerek hangi kaynağın süperpozisyon
+                        davranışı gösterdiğini anlamaya çalışır.
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Measurement -->
+            <section id="measurement" class="lesson-card">
+                <div class="lesson-icon">👁️</div>
+                <div>
+                    <h2>3. Ölçüm Neden Önemlidir?</h2>
+
+                    <p>
+                        Kuantum dünyasında ölçüm pasif bir bakış değildir. Ölçüm yapıldığında sistem artık süperpozisyon gibi davranmaz;
+                        klasik dünyada görebileceğimiz tek bir sonuç ortaya çıkar. Bu sonuç çoğu zaman 0 veya 1 gibi değerlerle temsil edilir.
+                    </p>
+
+                    <p>
+                        Bu yüzden kuantum sistemleri anlamak için tek bir ölçüm çoğu zaman yeterli değildir. Aynı hazırlama işlemini tekrar edip
+                        çok sayıda ölçüm yapmak gerekir. Ölçüm sonuçları bir araya getirildiğinde sistemin hangi olasılıklarla davrandığı anlaşılır.
+                    </p>
+
+                    <div class="mini-example">
+                        <strong>Oda 1 kuralı:</strong>
+                        Kapı, tek bir doğru karta basınca açılmaz. Aynı kaynağın ölçüm kayıtlarında hem 0 hem 1 sonucu görüldüğünde açılır.
+                        Böylece oyuncu, süperpozisyonu tahminle değil, deney kanıtıyla keşfeder.
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Entanglement -->
+            <section id="entanglement" class="lesson-card">
+                <div class="lesson-icon">🔗</div>
+                <div>
+                    <h2>4. Dolanıklık Nedir?</h2>
+
+                    <p>
+                        Dolanıklık, iki kuantum sisteminin ölçüm sonuçları arasında çok güçlü bir ilişki olmasıdır.
+                        Tek tek bakıldığında sonuçlar rastgele görünebilir; fakat iki sistemin ölçüm sonuçları birlikte incelendiğinde
+                        aralarında düzenli bir bağlantı olduğu anlaşılır.
+                    </p>
+
+                    <p>
+                        Dolanıklık, “bir parçacık diğerine anında mesaj gönderiyor” anlamına gelmez.
+                        Daha doğru ifade şudur: Dolanık sistemlerin sonuçları birlikte değerlendirildiğinde, klasik sistemlerle açıklaması
+                        zor olan güçlü korelasyonlar ortaya çıkar.
+                    </p>
+
+                    <div class="mini-example">
+                        <strong>Oda 2 kuralı:</strong>
+                        Doğru mavi-kırmızı çiftler tek denemeyle bulunmaz. Oyuncu, tekrar edilen ölçümlerde hangi çiftlerin tutarlı korelasyon
+                        gösterdiğini keşfeder. Kasa ancak yeterli kanıt oluştuğunda açılır.
+                    </div>
+
+                    <div class="mini-example">
+                        <strong>Basit benzetme:</strong>
+                        İki gizli kutu düşün. Her kutuyu açtığında sonuç rastgele gibi görünebilir; fakat sonuçları yan yana yazıp karşılaştırdığında
+                        bazı kutuların birlikte özel bir düzen gösterdiğini fark edersin.
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Energy Levels -->
+            <section id="energy" class="lesson-card">
+                <div class="lesson-icon">⚡</div>
+                <div>
+                    <h2>5. Enerji Seviyeleri</h2>
+
+                    <p>
+                        Kuantum dünyasında bazı sistemlerin enerjisi sürekli bir kaydırma çubuğu gibi her değeri alamaz.
+                        Bunun yerine enerji, basamaklar gibi belirli seviyeler hâlinde düşünülebilir.
+                    </p>
+
+                    <p>
+                        Bu fikir atomları anlamak için çok önemlidir. Elektronların belirli enerji seviyelerinde bulunması,
+                        atomların ışık yayması ve bazı kuantum cihazlarının çalışma mantığı bu düşünceyle ilişkilidir.
+                    </p>
+
+                    <div class="mini-example">
+                        <strong>Oyundaki karşılığı:</strong>
+                        Oyundaki enerji paneli gerçek laboratuvar ölçümü değildir. Oyuncuya sistemin aktif olduğunu,
+                        deneyin ilerlediğini ve kuantum laboratuvarı atmosferini göstermek için kullanılan görsel bir arayüzdür.
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Qubit -->
+            <section id="qubit" class="lesson-card">
+                <div class="lesson-icon">⚛️</div>
+                <div>
+                    <h2>6. Qubit Nedir?</h2>
+
+                    <p>
+                        Qubit, kuantum bilişimin temel bilgi birimidir. Klasik bilgisayardaki bit, 0 veya 1 değerini taşır.
+                        Qubit ise ölçüm sonucunda yine 0 veya 1 verir; fakat ölçümden önce kuantum durumuyla ve olasılıklarla tanımlanabilir.
+                    </p>
+
+                    <p>
+                        Bu nedenle qubit, doğrudan yalnızca “temel kuantum fiziği” konusu değildir. Daha çok, kuantum mekaniği ilkelerini
+                        kullanan bir kuantum bilişim kavramıdır. Qubitleri anlamak için süperpozisyon ve ölçüm fikrini bilmek gerekir.
+                    </p>
+
+                    <div class="mini-example">
+                        <strong>Oyundaki karşılığı:</strong>
+                        Oda 1’de bazı kaynaklar hep aynı sonucu verirken, süperpozisyon kaynağı tekrar ölçümlerde hem 0 hem 1 gösterebilir.
+                        Bu, qubit ölçüm mantığının oyunlaştırılmış hâlidir.
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Quantum Computers -->
+            <section id="quantum-computers" class="lesson-card">
+                <div class="lesson-icon">🖥️</div>
+                <div>
+                    <h2>7. Kuantum Bilgisayarlar Ne Yapar?</h2>
+
+                    <p>
+                        Kuantum bilgisayarlar qubitleri, kuantum kapılarını, süperpozisyonu, ölçümü ve bazı durumlarda dolanıklığı kullanır.
+                        Her problemde klasik bilgisayarlardan hızlı olmak zorunda değildirler. Bu yanlış bir beklentidir.
+                    </p>
+
+                    <p>
+                        Kuantum bilgisayarlar özellikle bazı simülasyon, optimizasyon, kriptografi ve malzeme bilimi problemlerinde
+                        farklı avantajlar sağlayabilir. Çünkü doğadaki kuantum sistemleri yine kuantum kurallarıyla çalışan makinelerle
+                        modellemek bazı durumlarda daha uygun olabilir.
+                    </p>
+
+                    <div class="mini-example">
+                        <strong>Oyundaki karşılığı:</strong>
+                        Oda bulmacaları, kuantum bilgisayarlarda kullanılan temel akışı basitleştirir:
+                        <strong>hazırla → dönüştür → ölç → sonuçları yorumla</strong>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Source Note -->
+            <section class="lesson-card source-card">
+                <div class="lesson-icon">📌</div>
+                <div>
+                    <h2>Kısa Kaynak Notu</h2>
+
+                    <p>
+                        Bu anlatım iki bölümü birleştirir:
+                        Kuantum mekaniği tarafında süperpozisyon, ölçüm, dolanıklık ve enerji seviyeleri;
+                        kuantum bilişim tarafında ise qubit ve kuantum bilgisayar mantığı ele alınır.
+                    </p>
+
+                    <p>
+                        Oyundaki bulmacalar, bu kavramları lise düzeyinde deneyimlenebilir hâle getirmek için sadeleştirilmiştir.
+                        Gerçek kuantum fiziği daha matematiksel ve derindir; bu sayfa ise oyunu anlamak için kavramsal bir başlangıç sağlar.
+                    </p>
+
+                    <p class="source-links">
+                        <a href="https://openstax.org/books/university-physics-volume-3/pages/7-introduction" target="_blank" rel="noopener">
+                            OpenStax Quantum Mechanics
+                        </a>
+                        <a href="https://openstax.org/books/college-physics-2e/pages/29-introduction-to-quantum-physics" target="_blank" rel="noopener">
+                            OpenStax Introduction to Quantum Physics
+                        </a>
+                        <a href="https://www.nist.gov/quantum-information-science/quantum-computing-explained" target="_blank" rel="noopener">
+                            NIST Quantum Computing Explained
+                        </a>
+                        <a href="https://quantum.cloud.ibm.com/learning/en/courses/use-a-qc-today/build-and-run-your-first-quantum-program" target="_blank" rel="noopener">
+                            IBM Quantum Learning
+                        </a>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Actions -->
+            <div class="final-actions">
+                <button class="btn-play" onclick="startGame()">
+                    <span class="btn-text">▶ OYUNA BAŞLA</span>
+                    <div class="btn-glow"></div>
+                </button>
+
+                <button class="btn-play secondary" onclick="goHome()">
+                    <span class="btn-text">🏠 ANA SAYFA</span>
+                    <div class="btn-glow"></div>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

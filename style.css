@@ -1607,3 +1607,455 @@ body {
         font-size: 1.1rem;
     }
 }
+
+/* ========== QUANTUM COLLAPSE ANIMATIONS (Genel) ========== */
+
+/* Yanlış seçim sallama */
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
+}
+.wrong-shake {
+    animation: wrongShake 0.6s ease !important;
+    border-color: var(--error-red) !important;
+    box-shadow: 0 0 20px rgba(255, 51, 51, 0.7) !important;
+}
+
+/* Süperpozisyon çöküş titremesi */
+@keyframes collapsingPulse {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(131, 56, 236, 0.8), 0 0 40px rgba(0, 212, 255, 0.4);
+        transform: scale(1);
+    }
+    25% {
+        box-shadow: 0 0 30px rgba(0, 212, 255, 1), 0 0 60px rgba(131, 56, 236, 0.6);
+        transform: scale(1.04);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255, 0, 110, 0.8), 0 0 40px rgba(131, 56, 236, 0.4);
+        transform: scale(0.97);
+    }
+    75% {
+        box-shadow: 0 0 30px rgba(0, 212, 255, 1), 0 0 60px rgba(255, 0, 110, 0.6);
+        transform: scale(1.04);
+    }
+}
+.collapsing {
+    animation: collapsingPulse 0.24s ease-in-out infinite !important;
+    border-color: var(--primary-cyan) !important;
+}
+
+/* Çöküş tamamlandı */
+@keyframes collapsedGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.6); }
+    50% { box-shadow: 0 0 40px rgba(0, 255, 136, 1); }
+}
+.collapsed {
+    border-color: var(--success-green) !important;
+    animation: collapsedGlow 1s ease-in-out infinite !important;
+}
+
+/* ========== V2 LOGIC & LEARNING UPDATES ========== */
+
+.prototype-notice,
+.roadmap-section,
+.lesson-hero,
+.lesson-card,
+.evidence-board {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 12px;
+    box-shadow: var(--glow-cyan);
+    backdrop-filter: blur(10px);
+}
+
+.prototype-notice {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-left: 4px solid var(--success-green);
+}
+
+.prototype-notice h3 {
+    color: var(--success-green);
+    margin-bottom: 0.7rem;
+    letter-spacing: 1px;
+}
+
+.prototype-notice p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.clickable-intro {
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.clickable-intro:hover {
+    border-color: var(--primary-cyan);
+    box-shadow: var(--glow-cyan);
+    transform: translateY(-2px);
+}
+
+.learn-more-pill {
+    display: inline-block;
+    margin-bottom: 2rem;
+    padding: 0.75rem 1.2rem;
+    border: 1px solid var(--success-green);
+    border-radius: 999px;
+    color: var(--success-green);
+    background: rgba(0, 255, 136, 0.08);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.concept-card-link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+.roadmap-section {
+    max-width: 1100px;
+    margin: 4rem auto;
+    padding: 2rem;
+}
+
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.roadmap-card {
+    background: rgba(0, 0, 0, 0.32);
+    border: 1px solid rgba(0, 212, 255, 0.25);
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.roadmap-card span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 0.8rem;
+    border-radius: 50%;
+    border: 1px solid var(--primary-cyan);
+    color: var(--primary-cyan);
+    font-weight: 900;
+}
+
+.roadmap-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.roadmap-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.roadmap-card.playable {
+    border-color: var(--success-green);
+}
+
+.roadmap-card.playable span {
+    border-color: var(--success-green);
+    color: var(--success-green);
+}
+
+.roadmap-card.locked {
+    opacity: 0.78;
+}
+
+.learning-container {
+    align-items: flex-start;
+}
+
+.learning-page {
+    width: min(1100px, 100%);
+    animation: fadeIn 0.8s ease-out;
+}
+
+.learning-header {
+    width: 100%;
+}
+
+.lesson-hero {
+    padding: 2rem;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.lesson-hero h1 {
+    color: var(--primary-cyan);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    margin-bottom: 1rem;
+    text-shadow: var(--glow-cyan);
+}
+
+.lesson-hero p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.lesson-card {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 1.5rem;
+    padding: 1.8rem;
+    margin: 1.2rem 0;
+    text-align: left;
+}
+
+.lesson-icon {
+    font-size: 2.4rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.lesson-card h2 {
+    color: var(--primary-cyan);
+    margin-bottom: 0.8rem;
+}
+
+.lesson-card p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+}
+
+.mini-example {
+    background: rgba(0, 0, 0, 0.32);
+    border-left: 3px solid var(--success-green);
+    border-radius: 6px;
+    padding: 1rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.source-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.source-links a {
+    color: var(--success-green);
+    border: 1px solid rgba(0, 255, 136, 0.4);
+    border-radius: 999px;
+    padding: 0.5rem 0.8rem;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.source-links a:hover {
+    box-shadow: var(--glow-green);
+}
+
+.mystery-cards .mystery-card .card-value {
+    font-size: 3.2rem;
+}
+
+.action-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.secondary-action {
+    border-color: var(--primary-magenta);
+    color: var(--primary-magenta);
+    background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(131, 56, 236, 0.1));
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.35), inset 0 0 20px rgba(255, 0, 110, 0.1);
+}
+
+.secondary-action:hover {
+    box-shadow: 0 0 40px rgba(255, 0, 110, 0.55), inset 0 0 30px rgba(255, 0, 110, 0.15);
+}
+
+.evidence-board {
+    max-width: 720px;
+    margin: 0 auto 1rem;
+    padding: 1.2rem;
+    text-align: left;
+    box-shadow: none;
+}
+
+.board-title {
+    color: var(--primary-cyan);
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+}
+
+.station-readout {
+    background: rgba(0, 0, 0, 0.32);
+    border-left: 3px solid var(--primary-cyan);
+    border-radius: 6px;
+    padding: 0.8rem;
+    margin: 0.6rem 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.measurement-result-box {
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid var(--success-green);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.measurement-result-box p {
+    color: var(--success-green);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.measurement-result-box span {
+    font-size: 1.8rem;
+    display: block;
+    margin-top: 0.3rem;
+    color: var(--success-green);
+}
+
+.measured-flash {
+    border-color: var(--success-green) !important;
+    box-shadow: var(--glow-green) !important;
+}
+
+.discovery-system .entangle-card .card-symbol {
+    font-size: 1.25rem;
+}
+
+.entangle-card.correct .card-symbol,
+.entangle-card.matched .card-symbol {
+    color: var(--success-green);
+}
+
+.achievement-item.planned {
+    border-left-color: var(--accent-purple);
+    opacity: 0.85;
+}
+
+/* Gerçek kapı açılma hissi: panel artık perspektifle döner. */
+.door-frame {
+    perspective: 900px;
+    overflow: visible;
+}
+
+.door-frame::after {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border-radius: 8px;
+    background: radial-gradient(circle, rgba(0, 255, 136, 0.35), transparent 65%);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    z-index: 0;
+}
+
+.door-frame:has(.door.opened)::after {
+    opacity: 1;
+}
+
+.door {
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    z-index: 2;
+}
+
+.door.opened {
+    animation: none !important;
+    transform: perspective(900px) rotateY(-72deg) translateX(-4px);
+    box-shadow: 0 0 45px rgba(0, 255, 136, 0.75), inset 0 0 18px rgba(0, 255, 136, 0.25);
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.22), rgba(0, 212, 255, 0.12));
+}
+
+/* Gerçek kasa açılma hissi: kasa kapağı döner ve iç glow görünür. */
+.vault {
+    perspective: 900px;
+    overflow: visible;
+}
+
+.vault::after {
+    content: '';
+    position: absolute;
+    inset: 18px;
+    border-radius: 10px;
+    background: radial-gradient(circle, rgba(0, 255, 136, 0.38), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+}
+
+.vault.opened::after {
+    opacity: 1;
+}
+
+.vault-door {
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transition: transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.9s ease, border-color 0.9s ease;
+    z-index: 2;
+}
+
+.vault-door.opened {
+    transform: perspective(900px) rotateY(-68deg) translateX(-6px);
+    border-color: var(--success-green);
+    box-shadow: 0 0 45px rgba(0, 255, 136, 0.7), inset 0 0 20px rgba(0, 255, 136, 0.2);
+}
+
+@supports not selector(:has(*)) {
+    .door.opened::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle, rgba(0, 255, 136, 0.25), transparent 70%);
+    }
+}
+
+@media (max-width: 768px) {
+    .lesson-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .source-links {
+        justify-content: center;
+    }
+
+    .action-row {
+        flex-direction: column;
+    }
+
+    .action-row .btn-action {
+        width: 100%;
+    }
+
+    .roadmap-grid {
+        grid-template-columns: 1fr;
+    }
+}
